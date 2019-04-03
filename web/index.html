@@ -1,0 +1,84 @@
+<!--
+    HTML file of website
+    Created by Qi on 04/01/19
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Trending jobs on mycareerfuture </title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="text">
+    <h1>Popular Skills</h1> <br>
+    <!--
+        this part we set 18 checkboxs to make browser choose skills
+        they want to know about
+    -->
+    <div id="skills_checkboxs">
+    	<h4> 
+            <!--
+                whenever we check these checkboxs
+                it will call jobList function(in index.js) 
+            -->
+            <input type="checkbox" name="skill" id="cb0" onclick=jobList()> 
+            <label for="cb0" id="0"> </label> &nbsp; 
+            <input type="checkbox" name="skill" id="cb1" onclick=jobList()> 
+            <label for="cb1" id="1"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb2" onclick=jobList()> 
+            <label for="cb2" id="2"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb3" onclick=jobList()> 
+            <label for="cb3" id="3"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb4" onclick=jobList()> 
+            <label for="cb4" id="4"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb5" onclick=jobList()> 
+            <label for="cb5" id="5"> </label>
+        </h4>
+        <h4>
+            <input type="checkbox" name="skill" id="cb6" onclick=jobList()> 
+            <label for="cb6" id="6"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb7" onclick=jobList()> 
+            <label for="cb7" id="7"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb8" onclick=jobList()> 
+            <label for="cb8" id="8"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb9" onclick=jobList()> 
+            <label for="cb9" id="9"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb10" onclick=jobList()> 
+            <label for="cb10" id="10"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb11" onclick=jobList()> 
+            <label for="cb11" id="11"> </label>
+        </h4>
+        <h4>
+            <input type="checkbox" name="skill" id="cb12" onclick=jobList()> 
+            <label for="cb12" id="12"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb13" onclick=jobList()> 
+            <label for="cb13" id="13"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb14" onclick=jobList()> 
+            <label for="cb14" id="14"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb15" onclick=jobList()> 
+            <label for="cb15" id="15"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb16" onclick=jobList()> 
+            <label for="cb16" id="16"> </label> &nbsp;
+            <input type="checkbox" name="skill" id="cb17" onclick=jobList()> 
+            <label for="cb17" id="17"> </label>
+        </h4>
+    </div>
+    <br>
+    <!--
+        in jobs_table <div> we will generate a table listing jobs
+        details written in index.js
+    -->
+    <div align="center" id="jobs_table"> </div>
+</body>
+<script src="index.js"></script>
+<!--
+    we use jsonp to transfer local json file to website
+    jobJson function(in index.js) will be called automatically
+-->
+<script src="allJobs.json?cb=jobJson"> </script>
+</html>

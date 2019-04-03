@@ -1,0 +1,44 @@
+/*
+    website layout settings
+    Created by Qi on 04/03/19
+*/
+
+/*
+    setting of all texts in website
+    all texts in website will be set in center area
+*/
+.text{ 
+    text-align:center; 
+}
+
+/*
+    setting of table
+    th: table header cell
+    td: table data cell
+*/
+table {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+    text-align: center;
+}
+
+table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+    text-align: center;
+}
