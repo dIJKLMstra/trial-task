@@ -21,17 +21,29 @@ from selenium.webdriver.common.keys import Keys
 
 def parse():
     # settings for the webdriver
-    option = webdriver.ChromeOptions()
-    option.add_argument("--incognito")
-    driver = webdriver.Chrome(
-        'chromedriver.exe', chrome_options=option)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
+    options.add_argument('blink-settings=imagesEnabled=false')
+    options.add_argument('--incognito')
+
+    if sys.argv[1] == "win":
+        driver = webdriver.Chrome(
+            'chromedriver_win.exe', chrome_options=options)
+    elif sys.argv[1] == "mac":
+        driver = webdriver.Chrome(
+            'chromedriver_mac', chrome_options=options)
+    else:
+        driver = webdriver.Chrome(
+            'chromedriver_linux', chrome_options=options)
 
     # set range of page we want to crawl
     start_page = 0   # default
     end_page = 10
-    if len(sys.argv) == 3:
-        start_page = int(sys.argv[1])
-        end_page = int(sys.argv[2])
+    if len(sys.argv) == 4:
+        start_page = int(sys.argv[2])
+        end_page = int(sys.argv[3])
 
     '''
         example of jobs_json:
@@ -96,6 +108,7 @@ def parse():
                 tmp_dict['date_posted'] = date_posted[7:]
                 tmp_dict['date_closed'] = date_closed[11:]
                 tmp_dict['skills'] = skills
+                print(tmp_dict)
                 # then put the dictionary in our final json list
                 jobs_json.append(tmp_dict)
 
