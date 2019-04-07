@@ -15,16 +15,17 @@ Should be able to click through to get a description of the job as crawled, or l
 This project can be divide into crawler and web part.
 
 > crawler 
->> mcfCrawler.py # crawl/parse/save/collect jobs data
+>> mcfCrawler.py # Crawl/parse/save/collect jobs data
 
+>> chromedriver_win.exe # Webdriver used in selenium (windows version)
 
->> chromedriver_win.exe # webdriver used in selenium (windows version)
+>> chromedriver_mac # Chromedriver mac version
 
->> chromedriver_mac # chromedriver mac version
+>> chromedriver_linux # Chromedriver linux version
 
->> chromedriver_linux # chromedriver linux version
+>> mcfCrawler.html # Comment documents of mcfCrawler.py
 
->> jobs_folder # saving all crawled data in this folder
+>> jobs_folder # Saving all crawled data in this folder
 
 >>> Jobs0to30.json # at first we named json files with Jobs[start_page]to[end_page].json
 
@@ -34,13 +35,21 @@ This project can be divide into crawler and web part.
 
 > web
 
->> allJobs.json # collected all data from jobs_folder
+>> allJobs.json # Collected all data from jobs_folder
 
 >> index.html # HTML file of website
 
->> index.js # javascript file of website
+>> jobsLib.js # Javascript file of website
 
 >> index.css # CSS file of website
+
+>> out # Comment documents of jobsLib.js
+
+>>> index.html # File comment document
+
+>>> global.html # Global members and functions comment document
+
+>>> jobsLib.js.html # Source code of jobsLib.js
 
 ## Operating Instructions
    ------------
@@ -58,21 +67,15 @@ Also, please check your version of Chrome
 
 Chromedriver version 2.46 supports `Chrome v71-73`
 
-As for code running, if your operating system is windows, run
-
-> python mcfCrawler.python win
-
-for mac, run 
-
-> python mcfCrawler.python mac
-
-for linux(default), run
-
-> python mcfCrawler.python linux
-
-Furthermore, user can set page range you want to crawl in command. Command example is like
+As for code running, Command example is like
 
 > python mcfCrawler.python your_OS start_page end_page
+
+if your operating system is windows, your_OS is `win`.
+
+For mac, your_OS is `mac`. For linux, your_OS is `linux`
+
+Furthermore, user should set page range(must be numbers) you want to crawl in command. 
 
 For example, you can run command like
 
@@ -82,7 +85,13 @@ In this code, we start crawling jobs information from website https://www.mycare
 
 So this program will crawl jobs information from https://www.mycareersfuture.sg/search?sortBy=new_posting_date&page=10. to https://www.mycareersfuture.sg/search?sortBy=new_posting_date&page=20.
 
-No page range in command is ok. Default page range is from page 0 to page 10.
+#### Attention:
+We will check input arguments to prevent hackers from maliciously executing arbitrary code within string arguments. 
+
+Any other input command format is forbidden and will raise exception in this code.
+
+So please input command again if you input a wrong command format.
+
 ### index.html
 <br>
 User can check many skills at same time. 
@@ -91,4 +100,4 @@ Jobs table below shows jobs that need all skills you have checked.
 
 Click job title of each job can link to its originally page.
 
-##### P.S. More details of this project is in each file's comment.
+#### P.S. More details of this project is in each file's comment.
